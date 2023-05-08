@@ -31,7 +31,6 @@ f_result_dir = f_dir + f_name + '-' + dir_name
 
 # 04. 상품 이름, 가격 저장 txt
 f = open(f_name + '.txt', 'w')
-f.write('hello')
 
 s_time = time.time()
 
@@ -68,7 +67,7 @@ for image in images:
         print(product_name)
         product_price = dr.find_element(By.XPATH, '//*[@id="contents"]/div[2]/div/ul[' + str(ul_count) + ']/li[' + str(li_count) + ']/a/div[1]/div[2]/div[2]/strong').text
         print(product_price)
-        f.write(product_name + '_' + product_price + '\n')
+        f.write(str(image_count) + '_' + product_name + '_' + product_price + '\n')
         imgUrl= dr.find_elements(By.CSS_SELECTOR, "img.prod_img")[image_count-1].get_attribute("src")
         urllib.request.urlretrieve(imgUrl, str(image_count) + ".jpg")
         image_count = image_count + 1
